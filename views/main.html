@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="timeline">
+      {% if user %}
+        {%for team in teams %}
+          <div class="team-box">
+            <a herf="/">
+              <h3>팀 이름: {{team.name}}</h3>
+              <h3>주제: {{team.topic}}</h3>
+              <h5>진행도: {{team.progressRate}}</h5>
+            </a>
+          </div>
+        {%endfor%}
+      {% endif %}
+    </div>
+{% endblock %}
+
+{% block script %}
+  
+{% endblock %}

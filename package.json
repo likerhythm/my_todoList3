@@ -1,0 +1,37 @@
+{
+  "name": "my_todolist3",
+  "version": "1.0.0",
+  "description": "todoList with nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likerhythm/my_todoList3.git"
+  },
+  "author": "choijmn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/likerhythm/my_todoList3/issues"
+  },
+  "homepage": "https://github.com/likerhythm/my_todoList3#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "nunjucks": "^3.2.3",
+    "passport": "^0.5.0",
+    "passport-kakao": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.24.0",
+    "sequelize-cli": "^6.5.1"
+  }
+}
