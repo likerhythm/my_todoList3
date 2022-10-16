@@ -5,13 +5,17 @@
       {% if user %}
         {%for team in teams %}
           <div class="team-box">
-            <form method="post" action="/team/profile">
-              <input type="hidden" value="{{team.name}}" name="teamName">
-              <h3>팀 이름: {{team.name}}</h3>
+            <form method="post" action="/teamProfile">
+              <input type="hidden" value="{{team.id}}" name="teamId">
+              <h3>그룹 이름: {{team.name}}</h3>
               <h3>주제: {{team.topic}}</h3>
               <h5>진행도: {{team.progressRate}}</h5>
               <h5>팀장: {{team.User.nick}}</h5>
               <button type="submit" class="btn">구경하기</button>
+            </form>
+            <form method="post" action="/team/join">
+              <input type="hidden" value="{{team.id}}" name="teamId">
+              <button type="submit" class="btn">그룹 들어가기</button>
             </form>
           </div>
         {%endfor%}

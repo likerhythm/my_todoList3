@@ -1,5 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-	{{user.nick}}
+	<div>
+		<h2>내가 속한 그룹</h2>
+		{% for team in teams %}
+			<h3>{{team.name}}</h3>
+		{% endfor %}
+	</div>
 {% endblock %}

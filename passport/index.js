@@ -7,7 +7,6 @@ module.exports = () => {
     // user 정보 중 user.id만 세션에 저장
     passport.serializeUser((user, done) => {
         // done 호출 후 auth.js로 돌아감
-        console.log('user: ', user);
         done(null, user.id);
     });
 

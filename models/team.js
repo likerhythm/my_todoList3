@@ -30,5 +30,6 @@ module.exports = class Team extends Sequelize.Model {
 
 	static associate(db) {
 		db.Team.belongsTo(db.User);
+		db.Team.belongsToMany(db.User, { through: 'TeamUser' });
 	}
 }

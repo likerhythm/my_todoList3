@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
     const teams = await Team.findAll({
       include: {
         model: User,
-        attributes: ['nick'],
+        attributes: ['nick', 'id'],
       },
     });
 		res.render('main', {
@@ -27,14 +27,34 @@ router.get('/', async (req, res, next) => {
   
 });
 
+router.post('/teamProfile', isLoggedIn, async(req, res, next) => {
+	try {
+		const team = await Team.findOne({
+			where: { id: req.body.teamId },
+			include: {
+				model: User,
+				attributes: ['nick'],
+			},
+		});
+		res.render('teamProfile', {
+			team,
+		});
+	} catch (error) {
+		console.error(error);
+		next(error);
+	}
+})
+
 router.get('/userProfile', isLoggedIn, async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: { id: req.user.id },
-      attributes: ['nick'],
     });
+		let teams = [];
+		teams = await user.getTeams();
+		console.log('teams: ', teams);
     res.render('userProfile', {
-      user,
+      teams,
     });
   } catch (error) {
     console.error(error);
@@ -56,7 +76,6 @@ router.get('/joinTeam', isLoggedIn, async(req, res, next) => {
 		const teams = await Team.findAll({
 			attributes: ['name', 'topic', 'progressRate'],
 		});
-    console.log('teams: ', teams);
 		res.render('joinTeam', {
 			teams,
 		});
