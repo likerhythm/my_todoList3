@@ -1,4 +1,4 @@
-const { TINYINT } = require('sequelize');
+const { TINYINT} = require('sequelize');
 const Sequelize = require('sequelize');
 
 module.exports = class Team extends Sequelize.Model {
@@ -29,6 +29,6 @@ module.exports = class Team extends Sequelize.Model {
 	}
 
 	static associate(db) {
-		db.Team.hasMany(db.User, {foreignKey: "teamName", sourceKey: "name"});
+		db.Team.belongsTo(db.User);
 	}
 }

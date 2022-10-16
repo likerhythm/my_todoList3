@@ -14,13 +14,12 @@
     <div class="container">
       <div class="profile-wrap">
         <div class="profile">
-          {% if user and user.id %}
+          {% if user %}
             <div class="user-name">{{user.nick + '님'}}</div>
-          <input id="my-id" type="hidden" value="{{user.id}}">
-          <a id="my-profile" href="/profile" class="btn">내 프로필</a>
-          <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
-          <a id="create-team" href="/createTeam" class="btn">팀 만들기</a>
-          <a id="join-team" href="/joinTeam" class="btn">팀 들어가기</a>
+            <a id="my-profile" href="/userProfile" class="btn">내 프로필</a>
+            <a id="logout" href="/auth/logout" class="btn">로그아웃</a>
+            <a id="create-team" href="/createTeam" class="btn">팀 만들기</a>
+            <a id="join-team" href="/joinTeam" class="btn">팀 들어가기</a>
         {% else %}
           <form id="login-form" action="/auth/login" method="post">
             <div class="input-group">

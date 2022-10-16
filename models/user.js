@@ -39,6 +39,6 @@ module.exports = class User extends Sequelize.Model {
   }
 	
   static associate(db){
-    db.User.belongsTo(db.Team, {foreignKey: "teamName", sourceKey: "name"});
+    db.User.hasOne(db.Team);
   }
 };

@@ -1,1 +1,15 @@
-join-team
+{% extends 'layout.html' %}
+
+{% block content %}
+	{% for team in teams %}
+		<div class="profile">
+			<form action="" method="post">
+				<input value="{{team.name}}" type="hidden">
+				{{team.name}}
+				{{team.topic}}
+				{{team.progressRate}}
+				<button class="btn">가입하기</button>
+			</form>
+		</div>
+	{% endfor %}
+{% endblock %}

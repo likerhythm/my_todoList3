@@ -22,4 +22,7 @@ db.Team = Team;
 User.init(sequelize);
 Team.init(sequelize);
 
+User.associate(db);
+Team.associate(db);
+
 module.exports = db;

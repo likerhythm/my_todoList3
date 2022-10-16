@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const indexRouter = require('./routes');
+const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
 const passportConfig = require('./passport');
 const teamRouter = require('./routes/team');
@@ -52,7 +52,7 @@ app.use(passport.session());
 
 app.use('/team', teamRouter)
 app.use('/auth', authRouter);
-app.use('/', indexRouter);
+app.use('/', pageRouter);
 
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
